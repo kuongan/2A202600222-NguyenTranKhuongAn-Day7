@@ -11,29 +11,49 @@
 ### Cosine Similarity (Ex 1.1)
 
 **High cosine similarity nghĩa là gì?**
-> *Viết 1-2 câu:*
+ High cosine similarity nghĩa là hai vector chỉ về cùng một hướng trong không gian đa chiều, cho thấy nội dung hoặc ngữ nghĩa của chúng rất tương đồng nhau, bất kể độ dài của văn bản.
 
 **Ví dụ HIGH similarity:**
-- Sentence A:
-- Sentence B:
-- Tại sao tương đồng:
+- **Sentence A:** "Tôi rất thích ăn phở bò."
+- **Sentence B:** "Món phở bò là món ăn yêu thích của tôi."
+- **Tại sao tương đồng:** Cả hai câu đều chia sẻ cùng một ngữ cảnh, các từ khóa chính và ý nghĩa cốt lõi về sở thích ẩm thực.
 
 **Ví dụ LOW similarity:**
-- Sentence A:
-- Sentence B:
-- Tại sao khác:
+- **Sentence A:** "Thị trường chứng khoán hôm nay biến động mạnh."
+- **Sentence B:** "Cách làm bánh mì tại nhà rất đơn giản."
+- **Tại sao khác:** Hai câu thuộc hai chủ đề hoàn toàn khác nhau (tài chính và ẩm thực), không có từ ngữ hay ý nghĩa chung.
 
 **Tại sao cosine similarity được ưu tiên hơn Euclidean distance cho text embeddings?**
-> *Viết 1-2 câu:*
+Vì Cosine similarity tập trung vào **hướng** (ngữ nghĩa) thay vì **độ dài** của vector; điều này giúp so sánh công bằng giữa một đoạn văn ngắn và một văn bản dài có cùng nội dung.
+
+---
 
 ### Chunking Math (Ex 1.2)
 
 **Document 10,000 ký tự, chunk_size=500, overlap=50. Bao nhiêu chunks?**
-> *Trình bày phép tính:*
-> *Đáp án:*
+
+
+*Trình bày phép tính:*
+
+Sử dụng công thức: $N = \lceil \frac{L - O}{S - O} \rceil$
+
+Trong đó:
+
+* $L$ (Tổng độ dài) = 10,000
+
+* $S$ (Chunk size) = 500
+
+* $O$ (Overlap) = 50
+>
+
+Phép tính: $\frac{10,000 - 50}{500 - 50} = \frac{9,950}{450} \approx 22.11$
+>
+
+*Đáp án:* **23 chunks** (Làm tròn lên để bao phủ phần dư cuối cùng).
 
 **Nếu overlap tăng lên 100, chunk count thay đổi thế nào? Tại sao muốn overlap nhiều hơn?**
-> *Viết 1-2 câu:*
+
+Khi overlap tăng, số lượng chunks sẽ **tăng lên** . Chúng ta muốn overlap nhiều hơn để đảm bảo ngữ cảnh giữa các đoạn không bị cắt đứt, giúp mô hình AI hiểu được mối liên kết thông tin giữa các chunk liền kề.
 
 ---
 
@@ -41,7 +61,7 @@
 
 ### Domain & Lý Do Chọn
 
-**Domain:** [ví dụ: Customer support FAQ, Vietnamese law, cooking recipes, ...]
+**Domain:** Vietnamese Disease 
 
 **Tại sao nhóm chọn domain này?**
 > *Viết 2-3 câu:*
